@@ -18,6 +18,16 @@
           <li><a href="#projects">Projects</a></li>
           <li><a href="#blog">Blog</a></li>
           <li><a href="#contact">Contact</a></li>
+          <li>
+            <button
+              class="sound-toggle"
+              type="button"
+              aria-pressed="false"
+              aria-label="Turn ambient sound on"
+              >
+              Sound: off
+            </button>
+          </li>
         </ul>
       </nav>
     </header>
@@ -64,6 +74,37 @@
             input validation,custom exceptions, and Maven for project management.
           </p>
           <p>Technologies: Java, Maven </p>
+          <div class="project-countdown">
+            <p class="countdown-label" id="countdown-status">
+              Time until project launch
+            </p>
+            <div
+              class="countdown-values"
+              data-countdown
+              role="timer"
+              aria-label="Project launch countdown loading"
+              >
+              <span class="countdown-unit">
+                <strong id="countdown-days">00</strong>
+                <small>Days</small>
+              </span>
+              <span class="countdown-unit">
+                <strong id="countdown-hours">00</strong>
+                <small>Hours</small>
+              </span>
+              <span class="countdown-unit">
+                <strong id="countdown-minutes">00</strong>
+                <small>Minutes</small>
+              </span>
+              <span class="countdown-unit">
+                <strong id="countdown-seconds">00</strong>
+                <small>Seconds</small>
+              </span>
+            </div>
+            <time datetime="2026-07-22T19:00:00-06:00">
+              July 22, 2026 · 7:00 PM (Mexico City)
+            </time>
+          </div>
           <a href="#" target="_blank" rel="noopener noreferrer">
             View my repository
           </a>
@@ -117,6 +158,8 @@
       </section>
     </main>
     <footer>&copy; 2026 CZero. Built with HTML, CSS, and TypeScript.</footer>
+    <div class="cursor-dot" aria-hidden="true"></div>
+    <div class="cursor-ring" aria-hidden="true"></div>
     <script type="module" src="/src/main.ts"></script>
 
 
