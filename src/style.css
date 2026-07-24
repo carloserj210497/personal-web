@@ -1,6 +1,11 @@
 *{
     box-sizing: border-box;
 }
+
+[hidden] {
+    display: none !important;
+}
+
 :root {
     --background: #020617;
     --surface: #071426;
@@ -164,6 +169,13 @@ section > p {
     font-size: 1.125rem;
 }
 
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+    margin-top: 32px;
+}
+
 article {
     max-width: 760px;
     margin-top: 32px;
@@ -172,6 +184,76 @@ article {
     border-radius: 12px;
     background-color: var(--surface);
     box-shadow: 0 8px 24px var(--neon-shadow);
+}
+
+.project-card {
+    display: flex;
+    flex-direction: column;
+    max-width: none;
+    margin-top: 0;
+    padding: 20px;
+    border-radius: 4px;
+    box-shadow: 6px 6px 0 rgba(57, 255, 136, 0.72),
+                0 8px 24px var(--neon-shadow);
+}
+
+.project-card-heading {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--border);
+}
+
+.project-card-heading h3 {
+    margin: 0;
+    color: var(--neon-green);
+    font-family: Consolas, "Courier New", monospace;
+    font-size: 1rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.window-dots {
+    display: flex;
+    gap: 5px;
+    flex: 0 0 auto;
+}
+
+.window-dots i {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #ff5f57;
+}
+
+.window-dots i:nth-child(2) {
+    background-color: #febc2e;
+}
+
+.window-dots i:nth-child(3) {
+    background-color: #28c840;
+}
+
+.technology-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 8px 0 24px;
+    padding: 0;
+    list-style: none;
+}
+
+.technology-list li {
+    padding: 6px 12px;
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    color: var(--text);
+    background-color: rgba(2, 6, 23, 0.55);
+    font-family: Consolas, "Courier New", monospace;
+    font-size: 0.8rem;
+    font-weight: 700;
 }
 
 article h3 {
@@ -200,6 +282,11 @@ article p {
     font-family: Consolas, "Courier New", monospace;
 }
 
+.project-card .project-countdown {
+    margin-top: auto;
+    padding: 14px;
+}
+
 .project-countdown .countdown-label {
     margin: 0 0 16px;
     color: var(--neon-green);
@@ -222,6 +309,25 @@ article p {
     border: 1px solid var(--border);
     border-radius: 6px;
     text-align: center;
+}
+
+.project-card .countdown-values {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 8px;
+}
+
+.project-card .countdown-unit {
+    min-width: 0;
+    padding: 8px 4px;
+}
+
+.project-card .countdown-unit strong {
+    font-size: 1.5rem;
+}
+
+.project-card .countdown-unit small {
+    font-size: 0.625rem;
 }
 
 .countdown-unit strong {
@@ -259,6 +365,13 @@ article a {
 
 article a:hover {
     text-decoration: underline;
+}
+
+.project-status {
+    color: var(--text-muted);
+    font-family: Consolas, "Courier New", monospace;
+    font-size: 0.875rem;
+    font-weight: 700;
 }
 
 #contact ul {
@@ -372,6 +485,12 @@ body.custom-cursor button {
     #home {
         padding-top: 72px;
         padding-bottom: 72px;
+    }
+}
+
+@media (max-width: 850px) {
+    .project-grid {
+        grid-template-columns: 1fr;
     }
 }
 

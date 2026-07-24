@@ -1,26 +1,46 @@
 import './style.css'
 
-const launchTime = new Date('2026-07-26T19:00:00-06:00').getTime()
-
-const countdown = document.querySelector<HTMLElement>('[data-countdown]')
-const countdownPanel = countdown?.closest<HTMLElement>('.project-countdown')
-const countdownStatus = document.querySelector<HTMLElement>('#countdown-status')
-const daysElement = document.querySelector<HTMLElement>('#countdown-days')
-const hoursElement = document.querySelector<HTMLElement>('#countdown-hours')
-const minutesElement = document.querySelector<HTMLElement>('#countdown-minutes')
-const secondsElement = document.querySelector<HTMLElement>('#countdown-seconds')
-
 const formatUnit = (value: number): string => value.toString().padStart(2, '0')
 
-if (
-  countdown &&
-  countdownPanel &&
-  countdownStatus &&
-  daysElement &&
-  hoursElement &&
-  minutesElement &&
-  secondsElement
-) {
+const initializeCountdown = (countdownPanel: HTMLElement): void => {
+  const launchAt = countdownPanel.dataset.launchAt
+  const launchLabel = countdownPanel.dataset.launchLabel ?? 'Project'
+  const countdown = countdownPanel.querySelector<HTMLElement>('[role="timer"]')
+  const countdownStatus = countdownPanel.querySelector<HTMLElement>(
+    '[data-countdown-status]',
+  )
+  const daysElement = countdownPanel.querySelector<HTMLElement>(
+    '[data-countdown-days]',
+  )
+  const hoursElement = countdownPanel.querySelector<HTMLElement>(
+    '[data-countdown-hours]',
+  )
+  const minutesElement = countdownPanel.querySelector<HTMLElement>(
+    '[data-countdown-minutes]',
+  )
+  const secondsElement = countdownPanel.querySelector<HTMLElement>(
+    '[data-countdown-seconds]',
+  )
+
+  if (
+    !launchAt ||
+    !countdown ||
+    !countdownStatus ||
+    !daysElement ||
+    !hoursElement ||
+    !minutesElement ||
+    !secondsElement
+  ) {
+    return
+  }
+
+  const launchTime = new Date(launchAt).getTime()
+
+  if (Number.isNaN(launchTime)) {
+    console.warn(`Invalid launch date for ${launchLabel}: ${launchAt}`)
+    return
+  }
+
   const updateCountdown = (): boolean => {
     const remainingTime = launchTime - Date.now()
 
@@ -29,8 +49,8 @@ if (
       hoursElement.textContent = '00'
       minutesElement.textContent = '00'
       secondsElement.textContent = '00'
-      countdownStatus.textContent = 'Project launched'
-      countdown.setAttribute('aria-label', 'Project launched')
+      countdownStatus.textContent = `${launchLabel} launched`
+      countdown.setAttribute('aria-label', `${launchLabel} launched`)
       countdownPanel.classList.add('is-complete')
 
       return true
@@ -48,7 +68,7 @@ if (
     secondsElement.textContent = formatUnit(seconds)
     countdown.setAttribute(
       'aria-label',
-      `${days} days, ${hours} hours, ${minutes} minutes, and ${seconds} seconds until project launch`,
+      `${days} days, ${hours} hours, ${minutes} minutes, and ${seconds} seconds until ${launchLabel} launches`,
     )
 
     return false
@@ -64,6 +84,10 @@ if (
     }, 1_000)
   }
 }
+
+document
+  .querySelectorAll<HTMLElement>('[data-launch-at]')
+  .forEach(initializeCountdown)
 
 const cursorDot = document.querySelector<HTMLElement>('.cursor-dot')
 const cursorRing = document.querySelector<HTMLElement>('.cursor-ring')

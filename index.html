@@ -63,52 +63,123 @@
           Here are some of the projects I have built while learning backend
           development.
         </p>
-        <article>
-          <h3>ATM system</h3>
+        <div class="project-grid">
+        <article class="project-card">
+          <div class="project-card-heading">
+            <span class="window-dots" aria-hidden="true">
+              <i></i><i></i><i></i>
+            </span>
+            <h3>ATM system</h3>
+          </div>
           <p> An evolving backend project that simulates banking operations and grows
             through multiple versions as I learn new technologies.
           </p>
           <h4>Version-1 Java and Maven</h4>
           <p>
             A console application built with Java using object-oriented programming,
-            input validation,custom exceptions, and Maven for project management.
+            input validation, custom exceptions, and Maven for project management.
           </p>
-          <p>Technologies: Java, Maven </p>
-          <div class="project-countdown">
-            <p class="countdown-label" id="countdown-status">
+          <ul class="technology-list" aria-label="Technologies used">
+            <li>Java</li>
+            <li>Maven</li>
+          </ul>
+          <div
+            class="project-countdown"
+            data-launch-at="2026-07-26T19:00:00-06:00"
+            data-launch-label="ATM system"
+            >
+            <p class="countdown-label" data-countdown-status>
               Time until project launch
             </p>
             <div
               class="countdown-values"
-              data-countdown
               role="timer"
-              aria-label="Project launch countdown loading"
+              aria-label="ATM system launch countdown loading"
               >
               <span class="countdown-unit">
-                <strong id="countdown-days">00</strong>
+                <strong data-countdown-days>00</strong>
                 <small>Days</small>
               </span>
               <span class="countdown-unit">
-                <strong id="countdown-hours">00</strong>
+                <strong data-countdown-hours>00</strong>
                 <small>Hours</small>
               </span>
               <span class="countdown-unit">
-                <strong id="countdown-minutes">00</strong>
+                <strong data-countdown-minutes>00</strong>
                 <small>Minutes</small>
               </span>
               <span class="countdown-unit">
-                <strong id="countdown-seconds">00</strong>
+                <strong data-countdown-seconds>00</strong>
                 <small>Seconds</small>
               </span>
             </div>
-            <time datetime="2026-07-22T19:00:00-06:00">
+            <time hidden datetime="2026-07-22T19:00:00-06:00">
               July 22, 2026 · 7:00 PM (Mexico City)
+            </time>
+            <time datetime="2026-07-22T19:00:00-06:00">
+              July 22, 2026 &middot; 7:00 PM (Mexico City)
             </time>
           </div>
           <a href="#" target="_blank" rel="noopener noreferrer">
             View my repository
           </a>
         </article>
+        <article class="project-card">
+          <div class="project-card-heading">
+            <span class="window-dots" aria-hidden="true">
+              <i></i><i></i><i></i>
+            </span>
+            <h3>BookTech</h3>
+          </div>
+          <p>
+            A library backend built with Go to explore clean service design,
+            book management, and reliable application behavior.
+          </p>
+          <h4>First release · Go</h4>
+          <p>
+            The first version will establish the core domain and operations
+            needed to organize and manage a digital book collection.
+          </p>
+          <ul class="technology-list" aria-label="Technologies used">
+            <li>Go</li>
+          </ul>
+          <div
+            class="project-countdown"
+            data-launch-at="2026-07-30T19:00:00-06:00"
+            data-launch-label="BookTech"
+            >
+            <p class="countdown-label" data-countdown-status>
+              Time until project launch
+            </p>
+            <div
+              class="countdown-values"
+              role="timer"
+              aria-label="BookTech launch countdown loading"
+              >
+              <span class="countdown-unit">
+                <strong data-countdown-days>00</strong>
+                <small>Days</small>
+              </span>
+              <span class="countdown-unit">
+                <strong data-countdown-hours>00</strong>
+                <small>Hours</small>
+              </span>
+              <span class="countdown-unit">
+                <strong data-countdown-minutes>00</strong>
+                <small>Minutes</small>
+              </span>
+              <span class="countdown-unit">
+                <strong data-countdown-seconds>00</strong>
+                <small>Seconds</small>
+              </span>
+            </div>
+            <time datetime="2026-07-30T19:00:00-06:00">
+              July 30, 2026 &middot; 7:00 PM (Mexico City)
+            </time>
+          </div>
+          <span class="project-status">Repository coming soon</span>
+        </article>
+        </div>
       </section>
       <section id="blog">
         <h2>Blog</h2>
